@@ -1,4 +1,4 @@
-var errorIfNotInteger = function(n) {
+function errorIfNotInteger(n) {
   if (n === true || n === false || (n % 1 != 0)) {
     throw 'Must be an integer';
   }
@@ -6,7 +6,7 @@ var errorIfNotInteger = function(n) {
 }
 module.exports.errorIfNotInteger = errorIfNotInteger;
 
-var makeArraysComparable = function() {
+function makeArraysComparable() {
   // attach the .equals method to Array's prototype to call it on any array
   Array.prototype.equals = function (array) {
     // if the other array is a falsy value, return
@@ -36,7 +36,7 @@ var makeArraysComparable = function() {
 }
 module.exports.makeArraysComparable = makeArraysComparable;
 
-var isPrime = function(n) {
+function isPrime(n) {
   errorIfNotInteger(n);
 
   // 2 is prime
