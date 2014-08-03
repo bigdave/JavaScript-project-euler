@@ -1,9 +1,10 @@
 var errorIfNotInteger = function(n) {
-  if (n % 1 != 0) {
+  if (n === true || n === false || (n % 1 != 0)) {
     throw 'Must be an integer';
   }
-  return null;
+  return n;
 }
+module.exports.errorIfNotInteger = errorIfNotInteger;
 
 var makeArraysComparable = function() {
   // attach the .equals method to Array's prototype to call it on any array

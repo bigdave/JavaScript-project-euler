@@ -7,6 +7,22 @@ var Euler = require('./euler');
 
 /* Utility test cases */
 describe('util.js', function() {
+  describe('errorIfNotInteger', function() {
+    it('should return the integer for integers', function() {
+      assert.equal(4, Util.errorIfNotInteger(4));
+      assert.equal(0, Util.errorIfNotInteger(0));
+      assert.equal(-187, Util.errorIfNotInteger(-187));
+    });
+    it('should throw an error for non-integers', function() {
+      assert.throws( function() { Util.errorIfNotInteger(3.14) });
+      assert.throws( function() { Util.errorIfNotInteger(true) });
+      assert.throws( function() { Util.errorIfNotInteger(false) });
+      assert.throws( function() { Util.errorIfNotInteger(0.5) });
+      assert.throws( function() { Util.errorIfNotInteger(-101.9) });
+      assert.throws( function() { Util.errorIfNotInteger('a') });
+      assert.throws( function() { Util.errorIfNotInteger('Jimmothy') });
+    });
+  });
   describe('makeArraysComparable', function() {
     it('should return false for non-arrays', function() {
       assert(![4].equals('a'));
