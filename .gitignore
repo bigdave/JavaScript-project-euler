@@ -1,1 +1,4 @@
-results.html
+.DS_Store
+
+test-coverage.html
+coverage/*
