@@ -1,3 +1,22 @@
+function reverseString(s) {
+  return s.split("").reverse().join("");
+}
+module.exports.reverseString = reverseString;
+
+function reverseNumber(n) {
+  return Number(reverseString(n.toString()));
+}
+module.exports.reverseNumber = reverseNumber;
+
+function reverse(original) {
+  if(isNaN(original)) {
+    return reverseString(original);
+  } else {
+    return reverseNumber(original);
+  }
+}
+module.exports.reverse = reverse;
+
 function errorIfNotInteger(n) {
   if (n === true || n === false || (n % 1 != 0)) {
     throw 'Must be an integer';
@@ -77,7 +96,15 @@ function nextPrimeAfter(start) {
 }
 module.exports.nextPrimeAfter = nextPrimeAfter;
 
-module.exports.findPrimeFactors = function(n) {
+function isPalindrome(possiblePalindrome) {
+  if (possiblePalindrome == reverse(possiblePalindrome)) {
+    return true;
+  }
+  return false;
+}
+module.exports.isPalindrome = isPalindrome;
+
+function findPrimeFactors(n) {
   errorIfNotInteger(n);
 
   var current = 2;
@@ -92,3 +119,4 @@ module.exports.findPrimeFactors = function(n) {
   }
   return factors;
 }
+module.exports.findPrimeFactors = findPrimeFactors;

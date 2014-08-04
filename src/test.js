@@ -23,6 +23,41 @@ describe('util.js', function() {
       assert.throws( function() { Util.errorIfNotInteger('Jimmothy') });
     });
   });
+  describe('reverseString', function() {
+    it('should reverse a string', function() {
+      assert.equal('moM', Util.reverseString('Mom'));
+      assert.equal('trebruh', Util.reverseString('hurbert'));
+      assert.equal('craycray', Util.reverseString('yarcyarc'));
+      assert.equal('esrever', Util.reverseString('reverse'));
+    });
+  });
+  describe('reverseNumber', function() {
+    it('should reverse a number', function() {
+      assert.equal(1234, Util.reverseNumber(4321));
+      assert.equal(789, Util.reverseNumber(987));
+      assert.equal(1.234, Util.reverseNumber(432.1));
+    });
+  });
+  describe('reverse', function() {
+    it('reverses numbers', function() {
+      assert.equal(1999, Util.reverse(9991));
+      assert.equal(3.14159, Util.reverse(95141.3));
+    });
+    it('reverses strings', function() {
+      assert.equal('Strange Brew', Util.reverse('werB egnartS'));
+    });
+  });
+  describe('isPalindrome', function() {
+    it('corectly identifies palindromes', function() {
+      assert(Util.isPalindrome('wow'));
+      assert(Util.isPalindrome('9009'));
+    });
+    it('correctly discriminates against non-palindromes', function() {
+      assert(!Util.isPalindrome('Bread'));
+      assert(!Util.isPalindrome('Delicious, delicious bread'));
+      assert(!Util.isPalindrome(1620));
+    })
+  });
   describe('makeArraysComparable', function() {
     it('should return false for non-arrays', function() {
       assert(![4].equals('a'));
@@ -132,6 +167,19 @@ describe('euler.js', function() {
     });
     it('should return x for the largest prime factor of 600851475143', function() {
       assert.equal(6857, Euler.problem3(600851475143));
+    });
+  });
+
+  describe('Problem 4 - Largest palindrome product', function() {
+    it('should identify 91 * 99 = 9009 as the largest for 2-digit numbers', function() {
+      var palindrome = Euler.problem4(2);
+      assert.equal(9009, palindrome.number);
+      assert([91,99].equals(palindrome.identities));
+    });
+    it('should identify x * y = 906609 as the largest for 3-digit numbers', function() {
+      var palindrome = Euler.problem4(3);
+      assert.equal(906609, palindrome.number);
+      assert([913,993].equals(palindrome.identities));
     });
   });
 });
