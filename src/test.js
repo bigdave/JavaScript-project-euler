@@ -14,13 +14,13 @@ describe('util.js', function() {
       assert.equal(-187, Util.errorIfNotInteger(-187));
     });
     it('should throw an error for non-integers', function() {
-      assert.throws( function() { Util.errorIfNotInteger(3.14) });
-      assert.throws( function() { Util.errorIfNotInteger(true) });
-      assert.throws( function() { Util.errorIfNotInteger(false) });
-      assert.throws( function() { Util.errorIfNotInteger(0.5) });
-      assert.throws( function() { Util.errorIfNotInteger(-101.9) });
-      assert.throws( function() { Util.errorIfNotInteger('a') });
-      assert.throws( function() { Util.errorIfNotInteger('Jimmothy') });
+      assert.throws( function() { Util.errorIfNotInteger(3.14); });
+      assert.throws( function() { Util.errorIfNotInteger(true); });
+      assert.throws( function() { Util.errorIfNotInteger(false); });
+      assert.throws( function() { Util.errorIfNotInteger(0.5); });
+      assert.throws( function() { Util.errorIfNotInteger(-101.9); });
+      assert.throws( function() { Util.errorIfNotInteger('a'); });
+      assert.throws( function() { Util.errorIfNotInteger('Jimmothy'); });
     });
   });
   describe('reverseString', function() {
@@ -56,7 +56,7 @@ describe('util.js', function() {
       assert(!Util.isPalindrome('Bread'));
       assert(!Util.isPalindrome('Delicious, delicious bread'));
       assert(!Util.isPalindrome(1620));
-    })
+    });
   });
   describe('makeArraysComparable', function() {
     it('should return false for non-arrays', function() {

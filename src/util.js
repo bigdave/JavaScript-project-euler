@@ -11,14 +11,13 @@ module.exports.reverseNumber = reverseNumber;
 function reverse(original) {
   if(isNaN(original)) {
     return reverseString(original);
-  } else {
-    return reverseNumber(original);
   }
+  return reverseNumber(original);
 }
 module.exports.reverse = reverse;
 
 function errorIfNotInteger(n) {
-  if (n === true || n === false || (n % 1 != 0)) {
+  if (n === true || n === false || (n % 1 !== 0)) {
     throw 'Must be an integer';
   }
   return n;
@@ -34,7 +33,7 @@ function makeArraysComparable() {
     }
 
     // compare lengths - can save a lot of time
-    if (this.length != array.length) {
+    if (this.length !== array.length) {
       return false;
     }
 
@@ -51,7 +50,7 @@ function makeArraysComparable() {
       }
     }
     return true;
-  }
+  };
 }
 module.exports.makeArraysComparable = makeArraysComparable;
 
@@ -69,7 +68,7 @@ function isPrime(n) {
   }
 
   for (var i = Math.floor(n / 2); i > 1; i--) {
-    if (n % i == 0) {
+    if (n % i === 0) {
       return false;
     }
   }
@@ -80,9 +79,9 @@ module.exports.isPrime = isPrime;
 function nextPrimeAfter(start) {
   var nextPossible;
 
-  if (start % 1 != 0) {
+  if (start % 1 !== 0) {
     nextPossible = Math.ceil(start);
-  } else if (start % 2 == 0) {
+  } else if (start % 2 === 0) {
     nextPossible = start + 1;
   } else {
     nextPossible = start + 2;
@@ -108,9 +107,9 @@ function findPrimeFactors(n) {
   errorIfNotInteger(n);
 
   var current = 2;
-  var factors = new Array();
+  var factors = [];
   while (n > 1) {
-    if (n % current == 0) {
+    if (n % current === 0) {
       factors.push(current);
       n = n / current;
     } else {

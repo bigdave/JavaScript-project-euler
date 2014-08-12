@@ -9,12 +9,12 @@ var Util = require('./util');
 module.exports.problem1 = function(limit) {
   var sum = 0;
   for (var i = 3; i < limit; i++) {
-    if (i % 3 == 0 || i % 5 == 0) {
+    if (i % 3 === 0 || i % 5 === 0) {
       sum += i;
     }
   }
   return sum;
-}
+};
 
 /*
  * Problem 2 - Even Fibonacci numbers
@@ -29,14 +29,14 @@ module.exports.problem2 = function(limit) {
   var sum = 0;
   var last = 1;
   for (current = 2; current < limit; /* Incremented below */) {
-    if (current % 2 == 0) {
+    if (current % 2 === 0) {
       sum += current;
     }
     current = last + current;
     last = current - last;
   }
   return sum;
-}
+};
 
 /*
  * Problem 3 - Largest prime factor
@@ -47,7 +47,7 @@ module.exports.problem2 = function(limit) {
 module.exports.problem3 = function(n) {
   var factors = Util.findPrimeFactors(n);
   return factors.pop();
-}
+};
 
 /*
  * Problem 4 - Largest palindrome product
@@ -60,7 +60,7 @@ module.exports.problem4 = function(n) {
   var LARGEST_n_DIGIT_NUMBER = (Math.pow(10,n))-1;
 
   // Setup the object to compare against for found palindromes
-  var largestPalindrome = new Object();
+  var largestPalindrome = {};
   largestPalindrome.number = 0;
 
   for (var r = LARGEST_n_DIGIT_NUMBER; r > 0; r--) {
@@ -73,4 +73,4 @@ module.exports.problem4 = function(n) {
   }
 
   return largestPalindrome;
-}
+};
