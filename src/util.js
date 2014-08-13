@@ -119,3 +119,16 @@ function findPrimeFactors(n) {
   return factors;
 }
 module.exports.findPrimeFactors = findPrimeFactors;
+
+function checkDivisibilityByRange(numerator, min, max) {
+  if (min > max) {
+    throw 'Minimum parameter must be less than Maximum parameter';
+  }
+  for (var i = max; i >= min; i--) {
+    if (numerator % i !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+module.exports.checkDivisibilityByRange = checkDivisibilityByRange;
