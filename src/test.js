@@ -172,6 +172,17 @@ describe('util.js', function() {
       assert.equal(3025, Util.squareOfSums(10));
     });
   });
+  describe('nthPrime()', function() {
+    it('should be able to identify the first 7 primes', function() {
+      assert.equal(2, Util.nthPrime(1));
+      assert.equal(3, Util.nthPrime(2));
+      assert.equal(5, Util.nthPrime(3));
+      assert.equal(7, Util.nthPrime(4));
+      assert.equal(11, Util.nthPrime(5));
+      assert.equal(13, Util.nthPrime(6));
+      assert.equal(17, Util.nthPrime(7));
+    });
+  });
 });
 
 /* For full problem descriptions, see euler.js */
@@ -234,6 +245,13 @@ describe('euler.js', function() {
     });
     it('should identify 25164150 for 100', function() {
       assert.equal(25164150, Euler.problem6(100));
+    });
+  });
+
+  describe('Problem 7 - 10001st prime', function() {
+    this.timeout(10000);
+    it('should identify 104743 as the 10001st prime', function() {
+      assert.equal(104743, Euler.problem7(10001));
     });
   });
 });

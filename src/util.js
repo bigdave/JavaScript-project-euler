@@ -154,3 +154,20 @@ function squareOfSums(n) {
   return Math.pow(nthTriangleNumber(n),2);
 }
 module.exports.squareOfSums = squareOfSums;
+
+function nthPrime(n) {
+  if (n === 1) {
+    return 2;
+  }
+  var count = 1;
+  var x = 3;
+  do {
+    if (isPrime(x)) {
+      count++;
+    }
+    if (count === n) {
+      return x;
+    }
+  } while (x += 2);
+}
+module.exports.nthPrime = nthPrime;
