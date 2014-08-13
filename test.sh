@@ -1,3 +1,7 @@
 #!/bin/bash
 
-mocha ./src
+if hash mocha 2>/dev/null; then
+  mocha ./src
+else
+  echo "Please install mocha"
+fi
