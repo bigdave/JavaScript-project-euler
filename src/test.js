@@ -162,6 +162,16 @@ describe('util.js', function() {
       assert.throws(function() { Util.checkDivisibilityByRange(10, 10, 1); });
     });
   });
+  describe('sumOfSquares()', function() {
+    it('should return 385 for 10', function() {
+      assert.equal(385, Util.sumOfSquares(10));
+    });
+  });
+  describe('squareOfSums()', function() {
+    it('should return 3025 for 10', function() {
+      assert.equal(3025, Util.squareOfSums(10));
+    });
+  });
 });
 
 /* For full problem descriptions, see euler.js */
@@ -215,6 +225,15 @@ describe('euler.js', function() {
     });
     it('should identify 232792560 as the smallest multiple from 1 to 20', function() {
       assert.equal(232792560, Euler.problem5(20));
+    });
+  });
+
+  describe('Problem 6 - Sum square difference', function() {
+    it('should identify 2640 for 10', function() {
+      assert.equal(2640, Euler.problem6(10));
+    });
+    it('should identify 25164150 for 100', function() {
+      assert.equal(25164150, Euler.problem6(100));
     });
   });
 });

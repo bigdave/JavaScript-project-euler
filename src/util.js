@@ -132,3 +132,25 @@ function checkDivisibilityByRange(numerator, min, max) {
   return true;
 }
 module.exports.checkDivisibilityByRange = checkDivisibilityByRange;
+
+function sumOfSquares(n) {
+  var sum = 0;
+  for (var i = n; i > 0; i--) {
+    sum += i * i;
+  }
+  return sum;
+}
+module.exports.sumOfSquares = sumOfSquares;
+
+function nthTriangleNumber(n) {
+  if (n === 1) {
+    return 1;
+  } else {
+    return n + nthTriangleNumber(n - 1);
+  }
+}
+
+function squareOfSums(n) {
+  return Math.pow(nthTriangleNumber(n),2);
+}
+module.exports.squareOfSums = squareOfSums;
