@@ -11,3 +11,14 @@ test cases and 100% code coverage.
 `coverage.sh` displays code coverage information for the exercises.
 
 `test.sh` executes test cases to demonstrate the correctness of the exercises.
+
+## WARNING: Spoilers
+If you are working through the Project Euler exercises for yourself, and want
+the pleasure and mental stimulation of solving them, tread carefully (or not
+at all) in this repo, because it does indeed contain answers for the problems
+which I have problematically solved. I encourage you to attempt the problems
+for yourself, look at the discussion threads on the Project Euler forum, and
+only investigate my solutions after you have already arrived at an answer.
+
+If you have optimizations or suggestions for my own solutions, I would love to
+hear them, and encourage you to open a pull request, issue, or just comment!

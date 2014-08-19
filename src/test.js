@@ -206,7 +206,7 @@ describe('euler.js', function() {
     it('should return 29 for the largest prime factor of 13195', function() {
       assert.equal(29, Euler.problem3(13195));
     });
-    it('should return x for the largest prime factor of 600851475143', function() {
+    it('should return 6857 for the largest prime factor of 600851475143', function() {
       assert.equal(6857, Euler.problem3(600851475143));
     });
   });
@@ -217,7 +217,7 @@ describe('euler.js', function() {
       assert.equal(9009, palindrome.number);
       assert([91,99].equals(palindrome.identities));
     });
-    it('should identify x * y = 906609 as the largest for 3-digit numbers', function() {
+    it('should identify 913 * 993 = 906609 as the largest for 3-digit numbers', function() {
       var palindrome = Euler.problem4(3);
       assert.equal(906609, palindrome.number);
       assert([913,993].equals(palindrome.identities));
