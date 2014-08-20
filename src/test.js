@@ -292,4 +292,12 @@ describe('euler.js', function() {
       assert.equal(31875000, Euler.problem9(1000));
     });
   });
+  describe('Problem 10 - Summation of primes', function() {
+    it('should sum all primes under 10 as 17', function() {
+      assert.equal(17, Euler.problem10(10));
+    });
+    it('should sum all primes under 2,000,000 as 142,913,828,922', function() {
+      assert.equal(142913828922, Euler.problem10(2000000));
+    });
+  });
 });
