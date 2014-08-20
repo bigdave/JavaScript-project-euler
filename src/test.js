@@ -104,9 +104,9 @@ describe('util.js', function() {
       assert.equal(false, Util.isPrime(24));
       assert.equal(false, Util.isPrime(10000));
     });
-    it('should throw an exception for non-integers', function() {
-      assert.throws(function() { Util.isPrime(3.14159); });
-      assert.throws(function() { Util.isPrime(-2.25); });
+    it('should return false for non-integer numbers', function() {
+      assert.equal(false, Util.isPrime(-2.25));
+      assert.equal(false, Util.isPrime(3.14159));
     });
   });
   describe('findPrimeFactors()', function() {
@@ -249,7 +249,6 @@ describe('euler.js', function() {
   });
 
   describe('Problem 7 - 10001st prime', function() {
-    this.timeout(10000); // It takes a while to find this
     it('should identify 104743 as the 10001st prime', function() {
       assert.equal(104743, Euler.problem7(10001));
     });

@@ -55,19 +55,18 @@ function makeArraysComparable() {
 module.exports.makeArraysComparable = makeArraysComparable;
 
 function isPrime(n) {
-  errorIfNotInteger(n);
-
   // 2 is prime
-  if (n == 2) {
+  if (n === 2) {
     return true;
   }
 
-  // Nothing under 2 is prime
-  if (n < 2) {
+  // Nothing under 2 is prime, even numbers aren't prime
+  if (n < 2 || n % 2 === 0 || n % 1 !== 0) {
     return false;
   }
 
-  for (var i = Math.floor(n / 2); i > 1; i--) {
+  var limit = Math.floor(Math.sqrt(n) + 1);
+  for (var i = 3; i < limit; i += 2) {
     if (n % i === 0) {
       return false;
     }
