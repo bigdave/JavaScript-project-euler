@@ -189,3 +189,12 @@ module.exports.problem10 = function(limit) {
 
   return sum;
 }
+
+/*
+ * Problem 11 - Largest product in a grid
+ * ... What is the greatest product of four adjacent numbers in the same
+ * direction (up, down, left, right, or diagonally) in the 20×20 grid?
+ */
+module.exports.problem11 = function(dataset, length) {
+  
+}
