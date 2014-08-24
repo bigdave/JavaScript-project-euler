@@ -111,7 +111,7 @@ describe('util.js', function() {
   });
   describe('findPrimeFactors()', function() {
     it('should return 7 for 7', function() {
-      //assert.equal([7], Util.findPrimeFactors(7));
+      assert([7].equals(Util.findPrimeFactors(7)));
     });
   });
   describe('nextPrimeAfter()', function() {
