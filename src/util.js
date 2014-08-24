@@ -141,6 +141,17 @@ function findFactors(n) {
 }
 module.exports.findFactors = findFactors;
 
+function generateCollatzSequence(n) {
+  if (n === 1) {
+    return [1];
+  } else if (n % 2 === 0) {
+    return [n].concat(generateCollatzSequence(n/2));
+  } else {
+    return [n].concat(generateCollatzSequence(3*n+1));
+  }
+}
+module.exports.generateCollatzSequence = generateCollatzSequence;
+
 function checkDivisibilityByRange(numerator, min, max) {
   if (min > max) {
     throw 'Minimum parameter must be less than Maximum parameter';

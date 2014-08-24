@@ -210,6 +210,14 @@ describe('util.js', function() {
       assert.equal(500500, Util.nthTriangleNumber(1000));
     });
   });
+  describe('generateCollatzSequence()', function() {
+    it('should work for the base case of 1', function() {
+      assert([1].equals(Util.generateCollatzSequence(1)));
+    });
+    it('should work for normal integer cases', function() {
+      assert([13,40,20,10,5,16,8,4,2,1].equals(Util.generateCollatzSequence(13)));
+    });
+  });
 });
 
 /* For full problem descriptions, see euler.js */
@@ -314,11 +322,13 @@ describe('euler.js', function() {
       assert.equal(23514624000, Euler.problem8(example, 13));
     });
   });
+
   describe('Problem 9 - Special Pythagorean triplet', function() {
     it('should find the product abc of the triplet a+b+c=1000', function() {
       assert.equal(31875000, Euler.problem9(1000));
     });
   });
+
   describe('Problem 10 - Summation of primes', function() {
     it('should sum all primes under 10 as 17', function() {
       assert.equal(17, Euler.problem10(10));
@@ -327,6 +337,7 @@ describe('euler.js', function() {
       assert.equal(142913828922, Euler.problem10(2000000));
     });
   });
+
   describe('Problem 11 - Largest product in a grid', function() {
     it('should work for a grid of 4 and a length of 2', function() {
       var example = [[0, 1, 0, 2],
@@ -359,6 +370,7 @@ describe('euler.js', function() {
       assert.equal(70600674, Euler.problem11(example, 4));
     });
   });
+
   describe('Problem 12 - Highly divisible triangular number', function() {
     it('should work for the Euler examples', function() {
       assert.equal(1, Euler.problem12(1));
@@ -369,6 +381,7 @@ describe('euler.js', function() {
       assert.equal(76576500, Euler.problem12(500));
     });
   });
+
   describe('Problem 13 - Large sum', function() {
     it('should work for reasonably sized numbers and arrays', function() {
       assert.equal(15, Euler.problem13([1, 2, 3, 4, 5]));
