@@ -294,7 +294,6 @@ module.exports.problem14 = function(max) {
   var maxNumber = 0;
 
   for (var i = max; i > 0; i--) {
-    console.log(i);
     var sequence = Util.generateCollatzSequence(i);
     if (sequence.length > maxLength) {
       maxLength = sequence.length;
@@ -303,4 +302,11 @@ module.exports.problem14 = function(max) {
   }
 
   return maxNumber;
+}
+
+/*
+ * Problem 15 - Lattice paths
+ */
+module.exports.problem15 = function(size) {
+  return Util.binomial(size*2, size);
 }

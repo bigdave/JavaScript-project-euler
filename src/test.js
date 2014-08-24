@@ -188,8 +188,8 @@ describe('util.js', function() {
       assert([1].equals(Util.findFactors(1)));
     });
     it('should work for integers', function() {
-      //assert([1,3].equals(Util.findFactors(3)));
-      //assert([1,2,3,6].equals(Util.findFactors(6)));
+      assert([1,3].equals(Util.findFactors(3)));
+      assert([1,2,3,6].equals(Util.findFactors(6)));
       assert([1,2,4,7,14,28].equals(Util.findFactors(28)));
     });
   });
@@ -216,6 +216,12 @@ describe('util.js', function() {
     });
     it('should work for normal integer cases', function() {
       assert([13,40,20,10,5,16,8,4,2,1].equals(Util.generateCollatzSequence(13)));
+    });
+  });
+  describe('binomial()', function() {
+    it('should work for known binomials', function() {
+      assert.equal(6, Util.binomial(4, 2));
+      assert.equal(10, Util.binomial(5, 3));
     });
   });
 });
@@ -496,4 +502,10 @@ describe('euler.js', function() {
       assert.equal(837799, Euler.problem14(1000000));
     });
   });
+
+  describe('Problem 15 - Lattice paths', function() {
+    it('should work for a 20x20 grid', function() {
+      assert.equal(137846528820, Euler.problem15(20));
+    });
+  })
 });

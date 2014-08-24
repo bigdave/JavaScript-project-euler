@@ -165,6 +165,24 @@ function checkDivisibilityByRange(numerator, min, max) {
 }
 module.exports.checkDivisibilityByRange = checkDivisibilityByRange;
 
+function binomial(n, k) {
+    var coeff = 1;
+    for (var i = n - k + 1; i <= n; i++) {
+      coeff *= i;
+    }
+    for (var i = 1; i <= k; i++) {
+      var result = coeff /= i;
+      if (result % 1 != 0) {
+        // Correct for 'exciting' JavaScript floating point math
+        coeff = parseFloat(result.toFixed(0));
+      } else {
+        coeff = result;
+      }
+    }
+    return coeff;
+}
+module.exports.binomial = binomial;
+
 function sumOfSquares(n) {
   var sum = 0;
   for (var i = n; i > 0; i--) {
