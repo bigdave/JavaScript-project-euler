@@ -124,17 +124,19 @@ function findFactors(n) {
 
   var factors = [1];
 
-  for (var i = 2; i <= n / 2; i++) {
+  for (var i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
       factors.push(i);
     }
   }
 
   if (n != 1) {
-    factors.push(n);
+    var allFactors = factors;
+    for (var i = factors.length; i >= 1;i--) {
+      allFactors.push(n/factors[i-1]);
+    }
   }
 
-  console.log("Found "+factors.toString());
   return factors;
 }
 module.exports.findFactors = findFactors;
