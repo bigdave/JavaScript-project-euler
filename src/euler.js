@@ -196,10 +196,6 @@ module.exports.problem10 = function(limit) {
  * direction (up, down, left, right, or diagonally) in the 20×20 grid?
  */
 module.exports.problem11 = function(dataset, length) {
-  if (dataset.length < length) {
-    throw "Dataset is too small for specified chain length";
-  }
-
   var maxProduct = 0;
   function replaceMaxIfGreater(x) {
     if (x > maxProduct) {
