@@ -168,6 +168,7 @@ function nthTriangleNumber(n) {
     return n + nthTriangleNumber(n - 1);
   }
 }
+module.exports.nthTriangleNumber = nthTriangleNumber;
 
 function squareOfSums(n) {
   return Math.pow(nthTriangleNumber(n),2);
