@@ -490,4 +490,10 @@ describe('euler.js', function() {
       assert("5537376230", Euler.problem13(example));
     });
   });
+
+  describe('Problem 14 - Longest Collatz sequence', function() {
+    it('should determine the number with the longest sequence', function() {
+      assert.equal(837799, Euler.problem14(1000000));
+    });
+  });
 });
