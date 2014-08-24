@@ -183,6 +183,16 @@ describe('util.js', function() {
       assert.equal(17, Util.nthPrime(7));
     });
   });
+  describe('findFactors()', function() {
+    it('should work for 1', function() {
+      assert([1].equals(Util.findFactors(1)));
+    });
+    it('should work for integers', function() {
+      assert([1,3].equals(Util.findFactors(3)));
+      assert([1,2,3,6].equals(Util.findFactors(6)));
+      assert([1,2,4,7,14,28].equals(Util.findFactors(28)));
+    });
+  });
 });
 
 /* For full problem descriptions, see euler.js */

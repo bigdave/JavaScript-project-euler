@@ -119,6 +119,26 @@ function findPrimeFactors(n) {
 }
 module.exports.findPrimeFactors = findPrimeFactors;
 
+function findFactors(n) {
+  errorIfNotInteger(n);
+
+  var factors = [1];
+
+  for (var i = 2; i <= n / 2; i++) {
+    if (n % i === 0) {
+      factors.push(i);
+    }
+  }
+
+  if (n != 1) {
+    factors.push(n);
+  }
+
+  console.log("Found "+factors.toString());
+  return factors;
+}
+module.exports.findFactors = findFactors;
+
 function checkDivisibilityByRange(numerator, min, max) {
   if (min > max) {
     throw 'Minimum parameter must be less than Maximum parameter';
