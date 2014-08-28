@@ -82,8 +82,6 @@ module.exports.problem4 = function(n) {
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  */
 module.exports.problem5 = function(n) {
-  var UPPER_BOUND = n;
-
   // Base cases
   if (n < 3) {
     return n;
@@ -94,7 +92,7 @@ module.exports.problem5 = function(n) {
       return possibility;
     }
   }
-}
+};
 
 /*
  * Problem 6 - Sum square difference
@@ -114,7 +112,7 @@ module.exports.problem6 = function(n) {
   var sumOfSquares = Util.sumOfSquares(n);
   var squareOfSums = Util.squareOfSums(n);
   return squareOfSums - sumOfSquares;
-}
+};
 
 /*
  * Problem 7 - 10001st prime
@@ -124,7 +122,7 @@ module.exports.problem6 = function(n) {
  */
 module.exports.problem7 = function(n) {
   return Util.nthPrime(n);
-}
+};
 
 /*
  * Problem 8 - Largest product in a series
@@ -134,18 +132,22 @@ module.exports.problem7 = function(n) {
  */
 module.exports.problem8 = function(string, n) {
   var max = 0;
+
+  var product;
+  function multiplyByProduct(n) {
+    product *= n;
+  }
+
   for (var i = 0; i <= (string.length - n); i++) {
     var slice = string.substr(i,n).split('');
-    var product = 1;
-    slice.forEach(function(num) {
-      product *= num;
-    });
+    product = 1;
+    slice.forEach(multiplyByProduct);
     if (product > max) {
       max = product;
     }
   }
   return max;
-}
+};
 
 /*
  * Problem 9 - Special pythagorean triplet
@@ -165,7 +167,7 @@ module.exports.problem9 = function(sum) {
       }
     }
   }
-}
+};
 
 /*
  * Problem 10 - Summation of primes
@@ -188,7 +190,7 @@ module.exports.problem10 = function(limit) {
   }
 
   return sum;
-}
+};
 
 /*
  * Problem 11 - Largest product in a grid
@@ -216,14 +218,14 @@ module.exports.problem11 = function(dataset, length) {
 
       // Test down
       currentProduct = 1;
-      for (var i = 0; i < length; i++) {
+      for (i = 0; i < length; i++) {
         currentProduct *= dataset[y+i][x];
       }
       replaceMaxIfGreater(currentProduct);
 
       // Test diagonal right/down
       currentProduct = 1;
-      for (var i = 0; i < length; i++) {
+      for (i = 0; i < length; i++) {
         currentProduct *= dataset[y+i][x+i];
       }
       replaceMaxIfGreater(currentProduct);
@@ -231,7 +233,7 @@ module.exports.problem11 = function(dataset, length) {
       // Test diagonal right/up
       if (y > length) {
         currentProduct = 1;
-        for (var i = 0; i < length; i++) {
+        for (i = 0; i < length; i++) {
           currentProduct *= dataset[y-i][x+i];
         }
         replaceMaxIfGreater(currentProduct);
@@ -240,7 +242,7 @@ module.exports.problem11 = function(dataset, length) {
   }
 
   return maxProduct;
-}
+};
 
 /*
  * Problem 12 - Highly divisible triangular number
@@ -263,7 +265,7 @@ module.exports.problem12 = function(numberOfDivisors) {
   }
 
   return number;
-}
+};
 
 /*
  * Problem 13 - Large sum
@@ -273,12 +275,12 @@ module.exports.problem12 = function(numberOfDivisors) {
  */
 module.exports.problem13 = function(numbers) {
   var sum = 0;
-  numbers.forEach(function(element, index, array) {
+  numbers.forEach(function(element) {
     sum += element;
   });
 
   return sum.toString().substr(0,10);
-}
+};
 
 /*
  * Problem 14 - Longest Collatz sequence
@@ -302,14 +304,14 @@ module.exports.problem14 = function(max) {
   }
 
   return maxNumber;
-}
+};
 
 /*
  * Problem 15 - Lattice paths
  */
 module.exports.problem15 = function(size) {
   return Util.binomial(size*2, size);
-}
+};
 
 /*
  * Problem 16 - Power digit sum
@@ -341,9 +343,9 @@ module.exports.problem16 = function(power) {
     }
   }
 
-  for(var i = 0; i < power; i++) {
+  for(i = 0; i < power; i++) {
     sum += number[i];
   }
 
   return sum;
-}
+};

@@ -132,8 +132,8 @@ function findFactors(n) {
 
   if (n != 1) {
     var allFactors = factors;
-    for (var i = factors.length; i >= 1;i--) {
-      allFactors.push(n/factors[i-1]);
+    for (var j = factors.length; j >= 1; j--) {
+      allFactors.push(n/factors[j-1]);
     }
   }
 
@@ -170,9 +170,9 @@ function binomial(n, k) {
     for (var i = n - k + 1; i <= n; i++) {
       coeff *= i;
     }
-    for (var i = 1; i <= k; i++) {
-      var result = coeff /= i;
-      if (result % 1 != 0) {
+    for (var j = 1; j <= k; j++) {
+      var result = coeff /= j;
+      if (result % 1 !== 0) {
         // Correct for 'exciting' JavaScript floating point math
         coeff = parseFloat(result.toFixed(0));
       } else {
@@ -219,13 +219,15 @@ function nthPrime(n) {
     if (count === n) {
       return x;
     }
-  } while (x += 2);
+
+    x += 2;
+  } while (true);
 }
 module.exports.nthPrime = nthPrime;
 
 function integerToWords(n) {
   if (n > 9999) {
-    throw 'The number ' + n + ' is too large for words.'
+    throw 'The number ' + n + ' is too large for words.';
   }
 
   if (n === 0) {
@@ -276,12 +278,12 @@ function integerToWords(n) {
   var tens = numberString.charAt(2);
   var ones = numberString.charAt(3);
 
-  if (thousands != '0') {
+  if (thousands !== '0') {
     numberInWords = mapDigitToWord(thousands) + ' thousand';
   }
 
-  if (hundreds != '0') {
-    if (numberInWords != '') {
+  if (hundreds !== '0') {
+    if (numberInWords !== '') {
       numberInWords = numberInWords + ' ';
     }
     numberInWords = numberInWords + mapDigitToWord(hundreds) + ' hundred';
@@ -289,7 +291,7 @@ function integerToWords(n) {
 
   // Pad and 'and' if necessary
   var firstTwoDigits = parseInt(tens+ones);
-  if (numberInWords != '' && firstTwoDigits > 0) {
+  if (numberInWords !== '' && firstTwoDigits > 0) {
     numberInWords = numberInWords + ' and ';
   }
 
