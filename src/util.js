@@ -222,3 +222,97 @@ function nthPrime(n) {
   } while (x += 2);
 }
 module.exports.nthPrime = nthPrime;
+
+function integerToWords(n) {
+  if (n > 9999) {
+    throw 'The number ' + n + ' is too large for words.'
+  }
+
+  if (n === 0) {
+    return mapDigitToWord(0);
+  }
+
+  function mapDigitToWord(n) {
+    var numbers =
+      ['zero','one','two','three','four','five','six','seven','eight', 'nine'];
+
+    return numbers[n];
+  }
+
+  function mapTensDigitToWord(n) {
+    var numbers =
+      ['','','twenty','thirty','forty','fifty',
+      'sixty','seventy','eighty','ninety'];
+
+    return numbers[n];
+  }
+
+  function mapTeenNumberToWord(n) {
+    var mapping = [];
+    mapping[10] = 'ten';
+    mapping[11] = 'eleven';
+    mapping[12] = 'twelve';
+    mapping[13] = 'thirteen';
+    mapping[14] = 'fourteen';
+    mapping[15] = 'fifteen';
+    mapping[16] = 'sixteen';
+    mapping[17] = 'seventeen';
+    mapping[18] = 'eighteen';
+    mapping[19] = 'nineteen';
+
+    return mapping[n];
+  }
+
+  var numberInWords = '';
+
+  // Pad the number to a fixed length
+  var numberString = String(n);
+  while (numberString.length < 4) {
+    numberString = '0' + numberString;
+  }
+
+  var thousands = numberString.charAt(0);
+  var hundreds = numberString.charAt(1);
+  var tens = numberString.charAt(2);
+  var ones = numberString.charAt(3);
+
+  if (thousands != '0') {
+    numberInWords = mapDigitToWord(thousands) + ' thousand';
+  }
+
+  if (hundreds != '0') {
+    if (numberInWords != '') {
+      numberInWords = numberInWords + ' ';
+    }
+    numberInWords = numberInWords + mapDigitToWord(hundreds) + ' hundred';
+  }
+
+  // Pad and 'and' if necessary
+  var firstTwoDigits = parseInt(tens+ones);
+  if (numberInWords != '' && firstTwoDigits > 0) {
+    numberInWords = numberInWords + ' and ';
+  }
+
+  // Deal with oddly named numbers
+  if (firstTwoDigits >= 10 && firstTwoDigits <= 19) {
+    return numberInWords + mapTeenNumberToWord(firstTwoDigits);
+  }
+
+  // Deal with tens-digits
+  if (tens != '0') {
+    numberInWords = numberInWords + mapTensDigitToWord(parseInt(tens));
+  }
+
+  // Add hyphenation for tens/ones combos
+  if (tens != '0' && ones != '0') {
+    numberInWords = numberInWords + '-';
+  }
+
+  // Deal with ones-digits
+  if (ones != '0') {
+    numberInWords = numberInWords + mapDigitToWord(parseInt(ones));
+  }
+
+  return numberInWords;
+}
+module.exports.integerToWords = integerToWords;

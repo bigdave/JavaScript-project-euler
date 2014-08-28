@@ -224,6 +224,57 @@ describe('util.js', function() {
       assert.equal(10, Util.binomial(5, 3));
     });
   });
+  describe('integerToWords()', function() {
+    it('should work for single digit numbers', function() {
+      assert.equal('zero', Util.integerToWords(0));
+      assert.equal('three', Util.integerToWords(3));
+      assert.equal('nine', Util.integerToWords(9));
+    });
+    it('should work for oddly named numbers', function() {
+      assert.equal('ten', Util.integerToWords(10));
+      assert.equal('eleven', Util.integerToWords(11));
+      assert.equal('fourteen', Util.integerToWords(14));
+    });
+    it('should work for tens', function() {
+      assert.equal('twenty', Util.integerToWords(20));
+      assert.equal('eighty', Util.integerToWords(80));
+    });
+    it('should work for tens-ones combos', function() {
+      assert.equal('thirty-two', Util.integerToWords(32));
+      assert.equal('ninety-nine', Util.integerToWords(99));
+    });
+    it('should work for hundreds', function() {
+      assert.equal('two hundred', Util.integerToWords(200));
+      assert.equal('six hundred', Util.integerToWords(600));
+    });
+    it('should work for hundreds-ones combos', function() {
+      assert.equal('three hundred and one', Util.integerToWords(301));
+      assert.equal('six hundred and seven', Util.integerToWords(607));
+    });
+    it('should work for hundreds-tens combos', function() {
+      assert.equal('four hundred and thirty', Util.integerToWords(430));
+      assert.equal('five hundred and ten', Util.integerToWords(510));
+    });
+    it('should work for hundreds-tens-ones combos', function() {
+      assert.equal('one hundred and eighty-seven', Util.integerToWords(187));
+      assert.equal('eight hundred and twelve', Util.integerToWords(812));
+    });
+    it('should work for thousands', function() {
+      assert.equal('one thousand', Util.integerToWords(1000));
+      assert.equal('five thousand', Util.integerToWords(5000));
+    });
+    it('should work for thousands-hundreds combos', function() {
+      assert.equal('three thousand one hundred', Util.integerToWords(3100));
+      assert.equal('seven thousand two hundred', Util.integerToWords(7200));
+    });
+    it('should work for four digit numbers', function() {
+      assert.equal('eight thousand three hundred and ninety-one', Util.integerToWords(8391));
+      assert.equal('two thousand four hundred and thirteen', Util.integerToWords(2413));
+    });
+    it('should throw an error on unsupported numbers', function() {
+      assert.throws(function() { Util.integerToWords(10000); });
+    });
+  });
 });
 
 /* For full problem descriptions, see euler.js */
