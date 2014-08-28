@@ -193,11 +193,7 @@ function sumOfSquares(n) {
 module.exports.sumOfSquares = sumOfSquares;
 
 function nthTriangleNumber(n) {
-  if (n === 1) {
-    return 1;
-  } else {
-    return n + nthTriangleNumber(n - 1);
-  }
+  return (n * (n + 1)) / 2;
 }
 module.exports.nthTriangleNumber = nthTriangleNumber;
 

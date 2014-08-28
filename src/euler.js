@@ -65,7 +65,7 @@ module.exports.problem4 = function(n) {
 
   for (var r = LARGEST_n_DIGIT_NUMBER; r > 0; r--) {
     for (var c = LARGEST_n_DIGIT_NUMBER; c >= r; c--) {
-      if (Util.isPalindrome(r*c) && (r*c > largestPalindrome.number)) {
+      if ((r*c > largestPalindrome.number) && Util.isPalindrome(r*c)) {
         largestPalindrome.number = r*c;
         largestPalindrome.identities = [r,c];
       }
