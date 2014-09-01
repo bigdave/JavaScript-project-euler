@@ -296,9 +296,9 @@ module.exports.problem14 = function(max) {
   var maxNumber = 0;
 
   for (var i = max; i > 0; i--) {
-    var sequence = Util.generateCollatzSequence(i);
-    if (sequence.length > maxLength) {
-      maxLength = sequence.length;
+    var length = Util.findCollatzLength(i);
+    if (length > maxLength) {
+      maxLength = length;
       maxNumber = i;
     }
   }

@@ -218,6 +218,15 @@ describe('util.js', function() {
       assert([13,40,20,10,5,16,8,4,2,1].equals(Util.generateCollatzSequence(13)));
     });
   });
+  describe('findCollatzLength()', function() {
+    it('should work for 1', function() {
+      assert(1, Util.findCollatzLength(1));
+    });
+    it('should work for known cases', function() {
+      assert(9, Util.findCollatzLength(6));
+      assert(15, Util.findCollatzLength(11));
+    });
+  });
   describe('binomial()', function() {
     it('should work for known binomials', function() {
       assert.equal(6, Util.binomial(4, 2));
@@ -568,6 +577,7 @@ describe('euler.js', function() {
 
   describe('Problem 14 - Longest Collatz sequence', function() {
     it('should determine the number with the longest sequence', function() {
+      this.timeout(10000);
       assert.equal(837799, Euler.problem14(1000000));
     });
   });

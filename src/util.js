@@ -152,6 +152,20 @@ function generateCollatzSequence(n) {
 }
 module.exports.generateCollatzSequence = generateCollatzSequence;
 
+function findCollatzLength(n) {
+  var length = 1;
+  while (n > 1) {
+    if (n % 2 === 0) {
+      n /= 2;
+    } else {
+      n = 3*n+1;
+    }
+    length++;
+  }
+  return length;
+}
+module.exports.findCollatzLength = findCollatzLength;
+
 function checkDivisibilityByRange(numerator, min, max) {
   if (min > max) {
     throw 'Minimum parameter must be less than Maximum parameter';
