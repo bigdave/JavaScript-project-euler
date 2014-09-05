@@ -619,6 +619,15 @@ describe('euler.js', function() {
     });
   });
 
+  describe('Problem 20 - Factorial digit sum', function() {
+    it('should work for a known problem', function() {
+      assert.equal(27, Euler.problem20(10));
+    });
+    it('should work for the Euler problem', function() {
+      assert.equal(648, Euler.problem20(100));
+    });
+  });
+
   describe('Problem 67 - Maximum path sum II', function() {
     it('should work for the Euler problem', function() {
       assert.equal(7273, Euler.problem67('problem67.txt'));
