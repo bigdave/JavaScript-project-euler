@@ -606,4 +606,16 @@ describe('euler.js', function() {
       assert.equal(21124, Euler.problem17(1000));
     });
   });
+
+  describe('Problem 18 - Maximum path sum I', function() {
+    it('should work for the Euler problem', function() {
+      assert.equal(1074, Euler.problem18('problem18.txt'));
+    });
+  });
+
+  describe('Problem 67 - Maximum path sum II', function() {
+    it('should work for the Euler problem', function() {
+      assert.equal(7273, Euler.problem67('problem67.txt'));
+    });
+  });
 });

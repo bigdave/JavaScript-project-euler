@@ -1,4 +1,5 @@
 var Util = require('./util');
+var Import = require('./import.js');
 
 /* Problem 1 - Multiples of 3 and 5
  * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
@@ -370,4 +371,59 @@ module.exports.problem17 = function(limit) {
   }
 
   return total;
+}
+
+/*
+ * Problem 18 - Maximum path sum I
+ *
+ * By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+ *    3
+ *   7 4
+ *  2 4 6
+ * 8 5 9 3
+ *
+ * That is, 3 + 7 + 4 + 9 = 23.
+ *
+ * Find the maximum total from top to bottom of the triangle [in problem18.txt]
+ */
+module.exports.problem18 = function(fileName) {
+  data = Import.getIntegerTriangle(fileName);
+
+  function reduceRow() {
+    var penultimateRow = data[data.length-2];
+    var ultimateRow = data[data.length-1];
+
+    for (var i = 0; i < penultimateRow.length; i++) {
+      var a = penultimateRow[i]+ultimateRow[i];
+      var b = penultimateRow[i]+ultimateRow[i+1];
+
+      penultimateRow[i] = a > b ? a : b;
+    }
+
+    data.pop();
+  }
+
+  while (data.length > 1) {
+    reduceRow();
+  }
+
+  return data[0][0];
+}
+
+/*
+ * Problem 67 - Maximum path sum II
+ *
+ * By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+ *    3
+ *   7 4
+ *  2 4 6
+ * 8 5 9 3
+ *
+ * That is, 3 + 7 + 4 + 9 = 23.
+ *
+ * Find the maximum total from top to bottom of the triangle [in problem67.txt]
+ */
+module.exports.problem67 = function(fileName) {
+  var answer = this.problem18(fileName);
+  return answer;
 }
