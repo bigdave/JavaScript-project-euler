@@ -411,17 +411,39 @@ module.exports.problem18 = function(fileName) {
 }
 
 /*
+ * Problem 19 - Counting Sundays
+ *
+ * How many Sundays fell on the first of the month during the twentieth
+ * century (1 Jan 1901 to 31 Dec 2000)?
+ */
+module.exports.problem19 = function() {
+  var sum = 0;
+  var month = 0;
+  var year = 1901;
+  var date;
+
+  while (year < 2001) {
+    date = new Date(year, month, 1);
+    if (date.getDay() === 0) {
+      sum++;
+    }
+
+    // Increment the month
+    month = ++month % 12;
+
+    // Increment the year
+    if (month === 0) {
+      year++;
+    }
+  }
+
+  return sum;
+}
+
+/*
  * Problem 67 - Maximum path sum II
  *
- * By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
- *    3
- *   7 4
- *  2 4 6
- * 8 5 9 3
- *
- * That is, 3 + 7 + 4 + 9 = 23.
- *
- * Find the maximum total from top to bottom of the triangle [in problem67.txt]
+ * See problem 18 - larger data set
  */
 module.exports.problem67 = function(fileName) {
   var answer = this.problem18(fileName);

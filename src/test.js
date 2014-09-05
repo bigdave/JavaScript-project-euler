@@ -613,6 +613,12 @@ describe('euler.js', function() {
     });
   });
 
+  describe('Problem 19 - Counting Sundays', function() {
+    it('should work for the Euler problem', function() {
+      assert.equal(171, Euler.problem19());
+    });
+  });
+
   describe('Problem 67 - Maximum path sum II', function() {
     it('should work for the Euler problem', function() {
       assert.equal(7273, Euler.problem67('problem67.txt'));
