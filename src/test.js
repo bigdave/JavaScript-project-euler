@@ -80,6 +80,18 @@ describe('util.js', function() {
       assert([true,false,[true,false]].equals([true,false,[true,false]]));
     });
   });
+  describe('findProperDivisors()', function() {
+    it('should find the proper divisors of 220', function() {
+      assert(Util.findProperDivisors(220).equals([1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]));
+    });
+    it('should find the proper divisors of 284', function() {
+      assert(Util.findProperDivisors(284).equals([1, 2, 4, 71, 142]));
+    });
+    it('should find the proper divisors of a prime', function() {
+      assert(Util.findProperDivisors(11).equals([1]));
+      assert(Util.findProperDivisors(2027).equals([1]));
+    });
+  });
   describe('isPrime()', function() {
     it('should return true for 2', function() {
       assert(Util.isPrime(2));

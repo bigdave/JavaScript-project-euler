@@ -1,3 +1,14 @@
+/* Number.isInteger polyfill */
+if (!Number.isInteger) {
+  Number.isInteger = function isInteger(nVal) {
+    return typeof nVal === 'number'
+    && isFinite(nVal)
+    && nVal > -9007199254740992
+    && nVal < 9007199254740992
+    && Math.floor(nVal) === nVal;
+  };
+}
+
 function reverseString(s) {
   return s.split("").reverse().join("");
 }
@@ -93,6 +104,24 @@ function nextPrimeAfter(start) {
   return nextPossible;
 }
 module.exports.nextPrimeAfter = nextPrimeAfter;
+
+function findProperDivisors(n) {
+  var i = 1;
+  var divisors = [];
+  while (i <= n/2) {
+    if (Number.isInteger(n/i)) {
+      divisors.push(i);
+    }
+    i++;
+  }
+  return divisors;
+}
+module.exports.findProperDivisors = findProperDivisors;
+
+function findAmicablePair(n1) {
+
+}
+module.exports.findAmicablePair = findAmicablePair;
 
 function isPalindrome(possiblePalindrome) {
   if (possiblePalindrome == reverse(possiblePalindrome)) {
