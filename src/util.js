@@ -119,7 +119,27 @@ function findProperDivisors(n) {
 module.exports.findProperDivisors = findProperDivisors;
 
 function findAmicablePair(n1) {
+  var n1divisors = findProperDivisors(n1);
+  if (n1divisors.length === 0) {
+    return false;
+  }
 
+  var n1total = n1divisors.reduce(function(a, b) {
+    return a + b;
+  });
+
+  var n2divisors = findProperDivisors(n1total);
+  if (n2divisors.length === 0) {
+    return false;
+  }
+  var n2total = n2divisors.reduce(function(a, b) {
+      return a + b;
+  });
+  if (n2total === n1 && n1total !== n2total) {
+      return n1total;
+  } else {
+      return false;
+  }
 }
 module.exports.findAmicablePair = findAmicablePair;
 

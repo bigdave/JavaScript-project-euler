@@ -92,6 +92,20 @@ describe('util.js', function() {
       assert(Util.findProperDivisors(2027).equals([1]));
     });
   });
+  describe('findAmicablePair()', function() {
+    it('should work for mildly odd situations', function() {
+      assert.equal(Util.findAmicablePair(1), false);
+    });
+    it('should find amicable pairs', function() {
+      assert.equal(Util.findAmicablePair(220), 284);
+      assert.equal(Util.findAmicablePair(1184), 1210);
+      assert.equal(Util.findAmicablePair(71145), 67095);
+    });
+    it('should return false if there is no amicable pair', function() {
+      assert.equal(Util.findAmicablePair(10), false);
+      assert.equal(Util.findAmicablePair(500), false);
+    });
+  });
   describe('isPrime()', function() {
     it('should return true for 2', function() {
       assert(Util.isPrime(2));
@@ -637,6 +651,12 @@ describe('euler.js', function() {
     });
     it('should work for the Euler problem', function() {
       assert.equal(648, Euler.problem20(100));
+    });
+  });
+
+  describe('Problem 21 - Amicable numbers', function() {
+    it('should work for the Euler problem', function() {
+      assert.equal(31626, Euler.problem21());
     });
   });
 
