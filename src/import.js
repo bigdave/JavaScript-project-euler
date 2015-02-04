@@ -8,6 +8,7 @@ function getData(fileName) {
     return fs.readFileSync(file, 'utf8');
   }
 }
+exports.getData = getData;
 
 function getIntegerTriangle(fileName) {
   var data = getData(fileName).trim().split('\n');

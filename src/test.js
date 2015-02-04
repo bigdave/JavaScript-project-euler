@@ -660,6 +660,12 @@ describe('euler.js', function() {
     });
   });
 
+  describe('Problem 22 - Name scores', function() {
+    it('should work for the Euler problem', function() {
+      assert.equal(871198282, Euler.problem22('problem22.txt'));
+    });
+  });
+
   describe('Problem 67 - Maximum path sum II', function() {
     it('should work for the Euler problem', function() {
       assert.equal(7273, Euler.problem67('problem67.txt'));
