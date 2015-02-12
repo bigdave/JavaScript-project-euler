@@ -4,7 +4,7 @@ test:
 	# Running tests (this might take a while)
 	mocha ./src -R spec
 
-coverage: cleanup
+coverage: clean
 	# Instrumenting code
 	jscoverage ./src ./coverage
 
@@ -13,6 +13,6 @@ coverage: cleanup
 
 	open ./test-coverage.html
 
-cleanup:
+clean:
 	# Removing previous coverage results
-	rm -rf ./coverage
+	rm -rf ./coverage test-coverage.html
