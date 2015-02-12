@@ -6,11 +6,37 @@ Euler exercises with JavaScript. Mainly for kicks.
 My goal is to reuse code when possible through a utility library with robust
 test cases and 100% code coverage.
 
-`setup.sh` has pseudo-shell-script for getting up and running.
+## Setup
 
-`coverage.sh` displays code coverage information for the exercises.
+At the very least, you will need nodejs and mocha in order to run the tests.
+I installed node using homebrew:
 
-`test.sh` executes test cases to demonstrate the correctness of the exercises.
+    brew install node
+
+then used npm to install mocha:
+
+    npm install -g mocha
+
+and for the time being, install big-integer to give us support for large
+numbers:
+
+    npm install -g big-integer
+
+finally, if you want code coverage results, install the node-friendly
+version of jscoverage:
+
+    git clone https://github.com/visionmedia/node-jscoverage.git
+    ./configure && make && make install
+
+## Running
+
+The exercises are executed as tests using mocha:
+
+    make test
+
+or, for code coverage results viewable in a browser:
+
+    make coverage
 
 ## WARNING: Spoilers
 If you are working through the Project Euler exercises for yourself, and want
