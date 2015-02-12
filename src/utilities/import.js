@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var root = path.resolve(__dirname, '../data');
+var root = path.resolve(__dirname, '../euler-problems');
 
 function getData(fileName) {
   var file = path.resolve(root, fileName);

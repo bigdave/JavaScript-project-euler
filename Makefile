@@ -2,14 +2,14 @@
 
 test:
 	# Running tests (this might take a while)
-	mocha ./src -R spec
+	mocha ./src -R spec --recursive
 
 coverage: clean
 	# Instrumenting code
 	jscoverage ./src ./coverage
 
 	# Running tests (this might take a while)
-	mocha -R html-cov > ./test-coverage.html ./coverage
+	mocha -R html-cov > ./test-coverage.html ./coverage --recursive
 
 	open ./test-coverage.html
 
