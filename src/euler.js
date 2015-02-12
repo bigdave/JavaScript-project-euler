@@ -523,7 +523,6 @@ module.exports.problem22 = function(fileName) {
     }
 
     sum += nameScore * (n+1);
-    console.log("Name score for " + names[n] + " is " + nameScore * (n+1));
   }
 
   return sum;
