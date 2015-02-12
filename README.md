@@ -17,11 +17,6 @@ then used npm to install mocha:
 
     npm install -g mocha
 
-and for the time being, install big-integer to give us support for large
-numbers:
-
-    npm install -g big-integer
-
 finally, if you want code coverage results, install the node-friendly
 version of jscoverage:
 
