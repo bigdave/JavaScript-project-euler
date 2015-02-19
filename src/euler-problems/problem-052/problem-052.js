@@ -7,6 +7,10 @@ var Import = require('./../../utilities/import');
  * Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.
  */
 module.exports.problem52 = function(x) {
+	if (x === 1) {
+		return 1;
+	}
+
 	var trialNumber = 1;
 
 	function sortNumberAsString(n) {
