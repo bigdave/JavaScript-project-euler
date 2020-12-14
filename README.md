@@ -17,6 +17,10 @@ then used npm to install mocha:
 
     npm install -g mocha
 
+then use yarn to install dependencies:
+
+    yarn
+
 finally, if you want code coverage results, install the node-friendly
 version of jscoverage:
 
