@@ -4,11 +4,10 @@
   "description": "I'm trying to use breaks and spare time in my day to go through the Project Euler exercises with JavaScript. Mainly for kicks.",
   "main": "index.js",
   "dependencies": {
-    "big-integer": "^1.4.4"
+    "big-integer": "^1.4.4",
+    "mocha": "^8.2.1"
   },
-  "devDependencies": {
-    "mocha": "^2.2.4"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "make test"
   },
